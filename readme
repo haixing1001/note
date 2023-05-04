@@ -1,0 +1,15 @@
+如何换回开源驱动，Newifi D2
+取消勾选mtwifi、mt7603e、mt76x2e，勾选mt7603和mt76x2，然后编译。
+
+添加helllo world smartdns
+echo "src-git helloworld https://github.com/fw876/helloworld.git" >> "feeds.conf.default"   或者
+git clone https://github.com/fw876/helloworld.git 
+
+
+
+git clone https://github.com/pymumu/smartdns.git package/lean/smartdns
+git clone -b lede https://github.com/pymumu/luci-app-smartdns.git package/lean/luci-app-smartdns
+git clone -b packages https://github.com/xiaorouji/openwrt-passwall.git package/lean/passwall
+git clone -b luci-smartdns-new-version https://github.com/xiaorouji/openwrt-passwall.git package/lean/luci-app-passwall
+
+
