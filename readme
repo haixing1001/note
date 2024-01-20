@@ -13,3 +13,21 @@ git clone -b packages https://github.com/xiaorouji/openwrt-passwall.git package/
 git clone -b luci-smartdns-new-version https://github.com/xiaorouji/openwrt-passwall.git package/lean/luci-app-passwall
 
 
+dd if=/dev/zero of=/var/swap bs=1024 count=1024000
+mkswap -f /var/swap
+swapon /var/swap
+echo "/var/swap swap swap defaults 0 0" >> /etc/fstab
+
+
+curl --proxy socks5h://127.0.0.1:40000 https://www.cloudflare.com/cdn-cgi/trace 
+https://blog.passall.us/archives/826
+
+wget -N https://gitlab.com/fscarmen/warp/-/raw/main/menu.sh && bash menu.sh [option] [lisence/url/token]
+
+
+
+#设置端口跳跃
+apt install iptables-persistent
+iptables -t nat -A PREROUTING -i eth0 -p udp --dport 20000:40000 -j DNAT --to-destination :9443
+ip6tables -t nat -A PREROUTING -i eth0 -p udp --dport 20000:40000 -j DNAT --to-destination :9443
+netfilter-persistent save
