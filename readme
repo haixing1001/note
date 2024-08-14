@@ -31,3 +31,7 @@ apt install iptables-persistent
 iptables -t nat -A PREROUTING -i eth0 -p udp --dport 20000:40000 -j DNAT --to-destination :9443
 ip6tables -t nat -A PREROUTING -i eth0 -p udp --dport 20000:40000 -j DNAT --to-destination :9443
 netfilter-persistent save
+
+./CloudflareST -f ipv6.txt -tp 443  -tlr 0.25 -dn 10 -t 10 -tl 60 -url https://speedtest.poorhub.pro/cf.7z
+
+./CloudflareST -f ip.txt -tp 80  -tlr 0.8 -dn 10 -t 10 -tl 160 -sl 7 -url http://cdn.cloudflare.steamstatic.com/steam/apps/5952/movie_max.webm
