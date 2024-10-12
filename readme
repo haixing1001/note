@@ -1,3 +1,10 @@
+似乎是需要将内存设置全部改成512M，无论你的硬件是改成了512M还是1G，一共有三处要改
+
+内核模块：Wireless Drivers——memory profile——512M
+内核模块：Network Devices——komd-qca-nss-drv——configuration——512M
+IPQ选项：memory profile-512M
+
+
 如何换回开源驱动，Newifi D2
 取消勾选mtwifi、mt7603e、mt76x2e，勾选mt7603和mt76x2，然后编译。
 
